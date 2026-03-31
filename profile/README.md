@@ -1,19 +1,39 @@
 # Found in Space
 
-Found in Space is an educational and exploratory project built around Gaia-based data of the solar neighbourhood.
+Found in Space is an open educational project that takes real astronomical data — starting with ESA's [Gaia mission](https://www.cosmos.esa.int/web/gaia) and the Hipparcos survey — and turns it into something you can explore in a browser: a 3D map of the stars around our Sun, built from actual measurements.
 
-We're trying to make it easier for people to explore, understand, and build with nearby-star data through a mix of public-facing website work, data pipelines, spatial formats, interactive viewers, and constellation / skyculture experiments. The aim is not just to publish code, but to create experiences and learning material that connect astronomy, visualisation, and curiosity.
+The whole process is shared, from the raw catalogue downloads all the way through to the interactive viewer. If you're curious about any part of it — or just want to look at the stars — you're very welcome here.
 
-You can learn more at [foundin.space](https://foundin.space).
+You can visit the project at [foundin.space](https://foundin.space), or browse the repositories below to see how it all works.
 
-## What you'll find here
+## The repositories
 
-- data-processing work for turning catalogue data into usable 3D star datasets
-- octree and streaming formats for serving large star fields efficiently
-- interactive viewer work for desktop, VR, and future guided journeys
-- website and content work for learning, exploration, and technical transparency
-- constellation and skyculture packaging work for richer ways of experiencing the night sky
+The project is split across several repositories. They follow a natural sequence — each one feeds into the next — so the easiest way to understand the project is to follow the data as it moves through the system.
 
-This is a project by [Kaj Siebert](https://github.com/kws) of [k-si.com](https://k-si.com), and it is being developed for educational and entertainment purposes.
+### [Found-in-Space/pipeline](https://github.com/Found-in-Space/pipeline)
 
-If you have comments, suggestions, or ideas for contributions, they would be very welcome. For the broader project context, visit [foundin.space](https://foundin.space).
+This is where the data journey starts. The pipeline takes raw star catalogues from ESA's Gaia mission and the older Hipparcos survey, processes them (selecting distances, computing positions, assigning temperatures and magnitudes), cross-matches the two catalogues to resolve the roughly 100,000 stars that appear in both, and merges everything into a single clean dataset. The output is a set of HEALPix-partitioned Parquet files — one canonical row per star, with Sun-centred 3D coordinates in parsecs. The pipeline also handles a small number of manual overrides for stars like the Sun (which doesn't appear in either catalogue) and famous binaries where the automated matching struggles.
+
+### [Found-in-Space/octree](https://github.com/Found-in-Space/octree)
+
+A browser can't download a table with over a billion rows, so the merged star data needs to be repackaged for streaming. This repository takes the pipeline's Parquet output and converts it into a spatial octree — a tree structure that recursively divides 3D space so that a viewer can load just the stars it needs: nearby stars regardless of brightness, distant stars only if they're bright enough to see. The output is a compact binary file (`stars.octree`) along with optional sidecars for metadata like star names and identifiers.
+
+### [Found-in-Space/skykit](https://github.com/Found-in-Space/skykit)
+
+SkyKit is the viewer runtime — a JavaScript toolkit for building interactive 3D sky experiences. It handles loading octree data, managing what's visible, and rendering stars using WebGL shaders. It can be used as a standalone viewer for desktop or VR, or as a library for building custom visualisations. It's published on npm as `@found-in-space/skykit`.
+
+### [Found-in-Space/website](https://github.com/Found-in-Space/website)
+
+The public-facing site at [foundin.space](https://foundin.space), built with Astro and hosted on GitHub Pages. This is where the technical work becomes something people can actually use: guided explorations, learning content, and transparent documentation of how the data pipeline works. The site is structured around exploring the sky, learning about what you're seeing, and understanding how it was all built.
+
+### Other repositories
+
+- **[Found-in-Space/pipeline-dust](https://github.com/Found-in-Space/pipeline-dust)** — A companion to the main pipeline that builds a 3D interstellar dust map from the Rezaei Kh. et al. (2024) survey. The output is a compact binary in the same coordinate frame as the star data, ready for overlay in the viewer.
+
+- **[Found-in-Space/stellarium-skycultures](https://github.com/Found-in-Space/stellarium-skycultures)** — Packaging workspace for constellation artwork derived from the Stellarium project. Each culture (currently Western) is published as a standalone npm package with embedded 3D anchor directions, keeping constellation art decoupled from the viewer itself.
+
+## About the project
+
+Found in Space is built by [Kaj Siebert](https://k-si.com) — an astrophysicist by training who spent two decades in data science and technology before returning to the stars. The aim is not just to publish code, but to share the whole process of turning astronomical measurements into something people can explore and learn from. Data is a wonderful way to understand the universe, and the universe is a wonderful way to learn about data.
+
+If you have questions, suggestions, or ideas, they would be very welcome. You can find more context at [foundin.space](https://foundin.space).
