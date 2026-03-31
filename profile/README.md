@@ -16,7 +16,7 @@ This is where the data journey starts. The pipeline takes raw star catalogues fr
 
 ### [Found-in-Space/octree](https://github.com/Found-in-Space/octree)
 
-A browser can't download a table with over a billion rows, so the merged star data needs to be repackaged for streaming. This repository takes the pipeline's Parquet output and converts it into a spatial octree — a tree structure that recursively divides 3D space so that a viewer can load just the stars it needs: nearby stars regardless of brightness, distant stars only if they're bright enough to see. The output is a compact binary file (`stars.octree`) along with optional sidecars for metadata like star names and identifiers.
+A browser can't download a table with over a billion rows, so the merged star data needs to be repackaged for streaming. This repository converts the pipeline's Parquet output into a spatial octree — a tree that divides 3D space into nested cells across 14 levels. Each star is placed into a level based on its brightness: the brightest stars sit in the shallowest, largest cells, while the faintest go into the deepest, smallest ones. The threshold at each level is tuned to how far away a star of that brightness would still be visible to the human eye (defaulting to a naked-eye limit of magnitude 6.5). At runtime, the viewer loads cells level by level — bright-star cells have large visibility radii so they load from anywhere, while faint-star cells only load when the observer is nearby. The output is a compact binary file (`stars.octree`) along with optional sidecars for metadata like star names and identifiers.
 
 ### [Found-in-Space/skykit](https://github.com/Found-in-Space/skykit)
 
