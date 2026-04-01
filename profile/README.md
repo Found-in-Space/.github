@@ -22,7 +22,7 @@ A browser can't download a table with over a billion rows, so the merged star da
 
 SkyKit is the viewer runtime — a JavaScript toolkit for building interactive 3D sky experiences. It handles loading octree data, managing what's visible, and rendering stars using WebGL shaders. It can be used as a standalone viewer for desktop or VR, or as a library for building custom visualisations. It's published on npm as `@found-in-space/skykit`.
 
-### [Found-in-Space/website](https://github.com/Found-in-Space/website)
+### [Found-in-Space/website](https://github.com/Found-in-Space/found-in-space.github.io.git)
 
 The public-facing site at [foundin.space](https://foundin.space), built with Astro and hosted on GitHub Pages. This is where the technical work becomes something people can actually use: guided explorations, learning content, and transparent documentation of how the data pipeline works. The site is structured around exploring the sky, learning about what you're seeing, and understanding how it was all built.
 
