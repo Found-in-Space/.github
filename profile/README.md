@@ -32,6 +32,12 @@ The public-facing site at [foundin.space](https://foundin.space), built with Ast
 
 - **[Found-in-Space/stellarium-skycultures](https://github.com/Found-in-Space/stellarium-skycultures)** — Packaging workspace for constellation artwork derived from the Stellarium project. Each culture (currently Western) is published as a standalone npm package with embedded 3D anchor directions, keeping constellation art decoupled from the viewer itself.
 
+- **[Found-in-Space/touch-os](https://github.com/Found-in-Space/touch-os)** — A domain-neutral virtual-device UI runtime for scene-mounted panels, XR tablets, HUDs, cockpit displays, and reusable tool surfaces in 3D applications. The hosted project is at [foundin.space/touch-os](https://foundin.space/touch-os).
+
+- **[Found-in-Space/star-pilot](https://github.com/Found-in-Space/star-pilot)** — A SkyKit-powered learning-through-play demo that streams Gaia-derived stars into a 2D play slice, projects them with PixiJS, and lets a small inertial ship fly through the local stellar neighbourhood. The hosted version is at [foundin.space/star-pilot](https://foundin.space/star-pilot).
+
+- **[Found-in-Space/skykit-studio](https://github.com/Found-in-Space/skykit-studio)** — A standalone alpha editor and deterministic export toolchain for authored `fis-journey-v1` video journeys, including preview layouts, guide and timeline editing, and browser-based render capture. The hosted editor is at [foundin.space/skykit-studio](https://foundin.space/skykit-studio).
+
 ## About the project
 
 Found in Space is built by [Kaj Siebert](https://k-si.com) — an astrophysicist by training who spent two decades in data science and technology before returning to the stars. The aim is not just to publish code, but to share the whole process of turning astronomical measurements into something people can explore and learn from. Data is a wonderful way to understand the universe, and the universe is a wonderful way to learn about data.
