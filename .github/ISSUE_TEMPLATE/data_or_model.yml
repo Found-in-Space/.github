@@ -1,0 +1,35 @@
+name: Data or model concern
+description: Question a dataset, calculation, assumption, or representation.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to know whether the cause is data, a model, or rendering.
+        Share enough context to investigate. See [working with data and models](https://github.com/Found-in-Space/.github/blob/main/docs/data-and-models.md).
+        Keep restricted data, credentials, and private information out of the report.
+  - type: textarea
+    id: concern
+    attributes:
+      label: What result or interpretation concerns you?
+      description: Describe the discrepancy, question, or potentially misleading representation.
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Relevant data and inputs
+      description: Include any known dataset/publication version, catalogue identifiers, code version, parameters, units, frame, date/time, or observer location. Unknown details are fine.
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Reference or reasoning
+      description: Explain why you expected something different. Link a reference, comparison, or observation if available; a question without an alternative answer is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction or supporting material
+      description: Optional commands, a small shareable sample, screenshots, or links to evidence.

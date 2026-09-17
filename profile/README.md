@@ -1,69 +1,72 @@
 # Found in Space
 
-**Explore the nearby stars. Learn from the data behind the view.**
+**Explore. Question. Build.**
 
-Found in Space turns real astronomical measurements into interactive 3D experiences, lessons, games, and tools for making new journeys through the solar neighbourhood.
+We make scientific data and models into materials people can explore,
+question, and build with—helping them understand how evidence becomes
+understanding, and pursue questions of their own.
 
-It starts with open catalogues from ESA's [Gaia mission](https://www.cosmos.esa.int/web/gaia), Hipparcos, and other sources. From there, the whole process stays visible: how raw measurements become cleaned star data, how that data is indexed for the browser, how the viewer renders it, and how the result can become something you can fly through, question, teach with, or build on.
+Explore measured star fields, walk around worlds, investigate eclipses, or
+make a new representation of the data. Follow the measurements, assumptions,
+and code behind the experience, then use the materials for your own
+investigation, lesson, visualisation, or game.
 
-The project is part planetarium, part classroom, part open data lab. The aim is not just to show a beautiful sky, but to help people ask why the sky looks that way, what the data can and cannot show, and how measurements become understanding.
+**[Explore and learn at foundin.space](https://foundin.space/)** ·
+**[Find a project](https://github.com/Found-in-Space/.github/blob/main/docs/projects.md)** ·
+**[Contribute](https://github.com/Found-in-Space/.github/blob/main/CONTRIBUTING.md)**
 
-Start at **[foundin.space](https://foundin.space)**.
+## Find your starting point
 
-## Featured projects
+| What would you like to do? | Start here |
+| --- | --- |
+| Build with real star data | [SkyKit](https://github.com/Found-in-Space/skykit): reusable packages for streaming, querying, mapping, rendering, and composing astronomical scenes. |
+| Explore worlds, scale, and orbital motion | [Pas de Géant](https://github.com/Found-in-Space/pas-de-geant): a WebXR Solar System explorer with Earth and Moon surfaces and satellite layers. |
+| Calculate and explore solar eclipses | [Shadowline](https://github.com/Found-in-Space/shadowline): eclipse geometry, local predictions, map exports, and an interactive visualiser. |
+| Author a journey through the stars | [SkyKit Studio](https://github.com/Found-in-Space/skykit-studio): journey editing, preview, and deterministic video export. |
+| Build interactive panels inside a 3D application | [Touch OS](https://github.com/Found-in-Space/touch-os): a reusable UI runtime for scene-mounted screens, XR tablets, and other tool surfaces. |
+| Play with a stellar dataset | [Star Pilot](https://github.com/Found-in-Space/star-pilot): a game-like exploration of a slice through Gaia-derived stars. |
 
-### Found in Space
+**Aeolian Measure** extends this approach into music: measured systems become
+structured compositions through explicit analysis and mapping. It is currently
+in private development; its source is not yet public.
 
-The main site is the public front door: guided visualisations, lessons, teaching material, build guides, and open technical notes. Start with Orion, parallax, the HR diagram, star clusters, or the radio bubble, then follow the data behind the scene.
+For browser lessons and teaching material, start with
+[Learn & Build](https://foundin.space/learn-build/) or
+[Teach](https://foundin.space/teach/). Exploring, questioning, and building are
+all worthwhile ways to participate; coding is optional.
 
-Links: [foundin.space](https://foundin.space) · [GitHub repo](https://github.com/Found-in-Space/found-in-space.github.io)
+## Follow the data
 
-### Star Pilot
+The stellar data stack provides reusable material behind the experiences:
 
-Star Pilot is the playful side of the same data. It streams Gaia-derived stars into a 2D slice of the solar neighbourhood and lets you pilot a small ship through real local space. It is game-like on purpose: a way to make stellar geography feel immediate, explorable, and playable.
+- [pipeline](https://github.com/Found-in-Space/pipeline) processes Gaia,
+  Hipparcos, identifiers, and curated corrections into a merged stellar dataset.
+- [octree](https://github.com/Found-in-Space/octree) packages that dataset for
+  spatial streaming into applications such as SkyKit.
+- [catalogs](https://github.com/Found-in-Space/catalogs) holds versioned catalog
+  publications, provenance, and reproducible build records.
+- [pipeline-dust](https://github.com/Found-in-Space/pipeline-dust) prepares
+  interstellar dust and H-alpha volume data.
+- [stellarium-skycultures](https://github.com/Found-in-Space/stellarium-skycultures)
+  packages constellation artwork and supporting sky-culture data.
 
-Links: [foundin.space/star-pilot](https://foundin.space/star-pilot) · [GitHub repo](https://github.com/Found-in-Space/star-pilot)
+The [project guide](https://github.com/Found-in-Space/.github/blob/main/docs/projects.md)
+maps the wider ecosystem, including the website, infrastructure, and related
+projects. Check each repository for its current release status and setup.
 
-### SkyKit Studio
+## Build something—and help others build
 
-SkyKit Studio is the video journey workshop. It lets authored `fis-journey-v1` explorations be previewed, edited, retimed, rendered, and exported as deterministic browser-captured videos. It is how the project can turn interactive star journeys into shareable explanations, lessons, and film-like tours.
+Contributions can be code, documentation, scientific checks, teaching material,
+accessibility improvements, or a small example that makes a tool easier to use.
+Our educational aim is data and model literacy: understanding what questions
+can be answered, how to investigate them, and what the evidence supports.
 
-Links: [foundin.space/skykit-studio](https://foundin.space/skykit-studio) · [GitHub repo](https://github.com/Found-in-Space/skykit-studio)
+Sources, units, assumptions, uncertainty, and representation choices are part
+of the material. See [working with data and models](https://github.com/Found-in-Space/.github/blob/main/docs/data-and-models.md)
+and the [contribution guide](https://github.com/Found-in-Space/.github/blob/main/CONTRIBUTING.md).
 
-### Touch OS
+[Get help](https://github.com/Found-in-Space/.github/blob/main/SUPPORT.md) ·
+[Report a security concern](https://github.com/Found-in-Space/.github/blob/main/SECURITY.md) ·
+[Community conduct](https://github.com/Found-in-Space/.github/blob/main/CODE_OF_CONDUCT.md)
 
-Touch OS is a headless virtual-device UI runtime for scene-mounted panels, XR tablets, HUDs, cockpit displays, and other tool surfaces that live inside 3D applications.
-
-Links: [foundin.space/touch-os](https://foundin.space/touch-os) · [GitHub repo](https://github.com/Found-in-Space/touch-os)
-
-## The open stack
-
-Everything here is inspectable. If you want to understand how the experiences are made, follow the data through the repositories.
-
-### [pipeline](https://github.com/Found-in-Space/pipeline)
-
-This is where the star map begins. The pipeline downloads and processes astronomical catalogues, merges Gaia with Hipparcos, handles difficult duplicate and bright-star cases, chooses working distance estimates, and produces the cleaned Parquet data used by the rest of the project.
-
-### [octree](https://github.com/Found-in-Space/octree)
-
-A browser cannot download a billion-row table. The octree tools turn the processed catalogue into a streaming spatial index, so nearby and visible stars can arrive as you move through the scene instead of all at once.
-
-### [skykit](https://github.com/Found-in-Space/skykit)
-
-SkyKit is the JavaScript viewer runtime for building interactive 3D sky experiences. It loads octree data, manages visible cells, renders stars, and provides the foundation for the website, experiments, and future tools.
-
-### [stellarium-skycultures](https://github.com/Found-in-Space/stellarium-skycultures)
-
-Constellation art and sky-culture data are packaged separately so the viewer can use familiar sky stories without hard-wiring them into the core runtime.
-
-## Why open?
-
-Found in Space is open because the process is part of the lesson. Seeing a star map is one thing; understanding how measurements, assumptions, uncertainty, and rendering choices shape that map is where the learning really starts.
-
-The code, data pipeline, viewer runtime, authoring tools, and public site are here for anyone who wants to inspect them, teach with them, fork them, or use them as a starting point for a new data-driven experience.
-
-## About
-
-Found in Space is built by [Kaj Siebert](https://k-si.com), an astrophysicist by training who spent two decades in data science and technology before returning to the stars.
-
-Data is a wonderful way to understand the universe, and the universe is a wonderful way to learn about data.
+Found in Space is built by [Kaj Siebert](https://www.k-si.com/).

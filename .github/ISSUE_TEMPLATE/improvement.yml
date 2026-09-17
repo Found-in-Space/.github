@@ -1,0 +1,27 @@
+name: Improvement or new idea
+description: Suggest a capability, example, documentation change, or learning activity.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas can improve exploration, investigation, or making. You do not need
+        an implementation to propose one. Check existing issues for related work.
+  - type: textarea
+    id: use_case
+    attributes:
+      label: What would this help someone do?
+      description: Describe the person, question, or use case and what is difficult today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe a possible approach, useful example, or desired outcome. Alternatives are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and affected projects
+      description: Optional references, related issues, accessibility needs, teaching context, or dependencies on other packages.
